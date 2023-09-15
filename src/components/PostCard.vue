@@ -7,13 +7,17 @@
       <div class="row">
         {{ post.body }}
       </div>
+      <!-- TODO: reformat this so it's not displaying raw time -->
+      <div class="row mt-1">
+        Created on: {{ post.createdAt }}
+      </div>
       <!-- TODO: user profile stuff goes here -->
-      <!-- <div class="row">
+      <div class="row mt-5">
         <div class="col-6">
           <img class="creator-img" :src="post.creator.picture" alt="bad-img">
           <p>{{ post.creator.bio }}</p>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
