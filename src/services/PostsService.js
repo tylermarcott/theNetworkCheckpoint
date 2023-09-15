@@ -22,8 +22,8 @@ class PostsService {
     logger.log('creating post with the following data:', postData)
     const res = api.post('/api/posts', postData)
 
-    // logger.log('created a post with the following data:', res.data)
-    // AppState.posts.push(new Post(res.data))
+    logger.log('created a post with the following data:', res.data)
+    AppState.posts.push(new Post(res.data))
   }
 
   async changePage(pageUrl) {
