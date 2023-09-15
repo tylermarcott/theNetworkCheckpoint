@@ -14,7 +14,15 @@
       <!-- TODO: user profile stuff goes here -->
       <div class="row mt-5">
         <div class="col-6">
-          <img class="creator-img" :src="post.creator.picture" alt="bad-img">
+
+
+          <router-link :to="{ name: 'Profile', params: { profileId: post.profileId } }">
+
+            <img class="creator-img" :src="post.creator.picture" alt="bad-img">
+            <h4>{{ post.creator.name }}</h4>
+
+          </router-link>
+
           <p>{{ post.creator.bio }}</p>
         </div>
       </div>
