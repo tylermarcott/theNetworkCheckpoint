@@ -17,7 +17,10 @@ const routes = [
     component: loadPage('AboutPage')
   },
   {
-    path: '/profile',
+
+    // NOTE: have to specify in your router that you want your route path to be able to populate an id, like below. That's why I was not able to get a profile id in my url when I click to my profile page
+
+    path: '/profile/:profileId',
     name: 'Profile',
     component: loadPage('ProfilePage')
   },

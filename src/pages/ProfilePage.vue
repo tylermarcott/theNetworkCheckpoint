@@ -9,10 +9,33 @@
   hello from the profile page!
 </template>
 
+
 <script>
+import { useRoute } from "vue-router";
+import Pop from "../utils/Pop.js";
+import { profileService } from '../services/ProfileService.js'
+import { onMounted } from "vue";
+// import { logger } from "../utils/Logger.js";
+
+
 export default {
   setup() {
-    return {};
+    onMounted(() => getProfileById());
+
+    const route = useRoute();
+
+
+    async function getProfileById() {
+      try {
+        await profileService.getProfileById(route.params.profileId)
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
+
+
+    return {
+    };
   },
 };
 </script>

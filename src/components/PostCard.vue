@@ -15,8 +15,11 @@
       <div class="row mt-5">
         <div class="col-6">
 
+          <!-- TODO: remove this, just for testing -->
+          here's the creator id: {{ post.creatorId }}
 
-          <router-link :to="{ name: 'Profile', params: { profileId: post.profileId } }">
+
+          <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
 
             <img class="creator-img" :src="post.creator.picture" alt="bad-img">
             <h4>{{ post.creator.name }}</h4>
@@ -39,6 +42,7 @@ import { Post } from "../models/Post.js";
 export default {
   // NOTE: DO NOT FORGET YOUR PROPS, OR IT WILL NOT DISPLAY THINGS PROPERLY
   props: { post: { type: Post, required: true } },
+
 
   setup() {
     return {

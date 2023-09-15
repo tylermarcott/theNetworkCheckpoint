@@ -17,7 +17,7 @@ import Pop from "../utils/Pop.js";
 import { postsService } from '../services/PostsService.js'
 import { computed, onMounted } from "vue";
 import { AppState } from '../AppState.js'
-import { logger } from "../utils/Logger.js";
+// import { logger } from "../utils/Logger.js";
 
 export default {
   setup() {
