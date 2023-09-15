@@ -1,25 +1,34 @@
 <template>
-  {{ posts }}
+  <div class="row m-1 post-card">
+    <div class="col-5">
+      <img class="img-fluid img" :src="post.img" alt="bad-img">
+    </div>
+    <div class="col-7">
+      <div class="row">
+        {{ post.body }}
+      </div>
+      <!-- TODO: user profile stuff goes here -->
+      <!-- <div class="row">
+        <div class="col-6">
+          <img class="creator-img" :src="post.creator.picture" alt="bad-img">
+          <p>{{ post.creator.bio }}</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
 </template>
 
 <script>
-import Pop from "../utils/Pop.js";
-import { postsService } from '../services/PostsService.js'
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import { AppState } from '../AppState.js'
+import { Post } from "../models/Post.js";
+
 
 export default {
+  // NOTE: DO NOT FORGET YOUR PROPS, OR IT WILL NOT DISPLAY THINGS PROPERLY
+  props: { post: { type: Post, required: true } },
+
   setup() {
-
-
-    onMounted(() => getPosts());
-    async function getPosts() {
-      try {
-        await postsService.getPosts();
-      } catch (error) {
-        Pop.error(error);
-      }
-    }
     return {
       posts: computed(() => AppState.posts)
     };
@@ -28,4 +37,22 @@ export default {
 </script>
 
 
-<style></style>
+<style>
+.img {
+  max-height: 30vh;
+  max-width: 30vh;
+}
+
+.post-card {
+  border: solid #181515 2px;
+  border-radius: 5px;
+  min-height: 30vh;
+  background-color: #ddedf7;
+}
+
+.creator-img {
+  max-height: 5vh;
+  max-width: 5vh;
+  border-radius: 50em;
+}
+</style>
