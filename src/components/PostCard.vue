@@ -14,11 +14,6 @@
       <!-- TODO: user profile stuff goes here -->
       <div class="row mt-5">
         <div class="col-6">
-
-          <!-- TODO: remove this, just for testing -->
-          here's the creator id: {{ post.creatorId }}
-
-
           <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
 
             <img class="creator-img" :src="post.creator.picture" alt="bad-img">

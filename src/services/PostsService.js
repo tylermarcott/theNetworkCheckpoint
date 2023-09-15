@@ -11,8 +11,6 @@ class PostsService {
   async getPosts() {
     const res = await api.get('/api/posts')
 
-    logger.log('here is our data before submitting to appstate. Trying to find pages:', res.data)
-
     //NOTE: make sure to check the path to our data. In this case, all the posts were an additional level deeper than normal.
     AppState.posts = res.data.posts.map(post => new Post(post))
     AppState.nextUrl = res.data.older
@@ -20,9 +18,17 @@ class PostsService {
     logger.log('here is our data:', res.data.posts)
   }
 
+  async createPost(postData) {
+    logger.log('creating post with the following data:', postData)
+    const res = api.post('/api/posts', postData)
+
+    // logger.log('created a post with the following data:', res.data)
+    // AppState.posts.push(new Post(res.data))
+  }
+
   async changePage(pageUrl) {
     const res = await api.get(pageUrl)
-    AppState.posts = res.data.posts
+    AppState.posts = res.data.posts.map(post => new Post(post))
     logger.log('here is our newer appstate.posts:', res.data.posts)
     AppState.nextUrl = res.data.older
     AppState.previousUrl = res.data.newer

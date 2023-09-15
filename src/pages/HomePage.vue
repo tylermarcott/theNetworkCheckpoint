@@ -6,6 +6,10 @@
 
 <template>
   <section class="row">
+    <CreatePost :posts="posts" />
+  </section>
+
+  <section class="row">
     <div v-for="post in posts" :key="post.id" class="col-12">
       <PostCard :post="post" />
     </div>
