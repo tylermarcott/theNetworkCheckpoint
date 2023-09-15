@@ -1,13 +1,11 @@
+
+<!-- TODO: ok so first thing I want to do is make it so someone that is not logged in can see ALL posts on the home page -->
+<!-- how will I do this? Start by creating a PostCard component to add to the homepage. -->
+
+
+
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
-    </div>
-  </div>
+  <PostCard />
 </template>
 
 <script>
