@@ -10,6 +10,15 @@
       <PostCard :post="post" />
     </div>
   </section>
+
+  <section class="d-flex justify-content-around mb-1">
+    <button @click="changePage(previousUrl)" :disabled="!previousUrl" class="btn btn-primary elevation-2">
+      Newer
+    </button>
+    <button @click="changePage(nextUrl)" class="btn btn-secondary elevation-2">
+      Older
+    </button>
+  </section>
 </template>
 
 <script>
@@ -17,7 +26,7 @@ import Pop from "../utils/Pop.js";
 import { postsService } from '../services/PostsService.js'
 import { computed, onMounted } from "vue";
 import { AppState } from '../AppState.js'
-// import { logger } from "../utils/Logger.js";
+import { logger } from "../utils/Logger.js";
 
 export default {
   setup() {
@@ -32,7 +41,17 @@ export default {
     }
 
     return {
-      posts: computed(() => AppState.posts)
+      posts: computed(() => AppState.posts),
+      nextUrl: computed(() => AppState.nextUrl),
+      previousUrl: computed(() => AppState.previousUrl),
+
+      async changePage(url) {
+        try {
+          await postsService.changePage(url)
+        } catch (error) {
+          Pop.error(error)
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="row m-1 post-card">
     <div class="col-5">
-      <img class="img-fluid img" :src="post.img" alt="bad-img">
+      <img class="img-fluid img" :src="post.imgUrl" alt="bad-img">
     </div>
     <div class="col-7">
       <div class="row">
