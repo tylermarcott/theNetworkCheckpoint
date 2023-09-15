@@ -18,6 +18,8 @@ class PostsService {
     logger.log('here is our data:', res.data.posts)
   }
 
+  // TODO: start here
+  // FIXME: need to fix error with create. It is giving me an error but still writing data to api. That means I am getting an error trying to put it back in my appstate. Also, I do not get my posts to  show up when I create them, have to manually refresh.
   async createPost(postData) {
     logger.log('creating post with the following data:', postData)
     const res = api.post('/api/posts', postData)
