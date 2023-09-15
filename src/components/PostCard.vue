@@ -1,11 +1,12 @@
 <template>
-  hello from the post card
+  {{ posts }}
 </template>
 
 <script>
 import Pop from "../utils/Pop.js";
 import { postsService } from '../services/PostsService.js'
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
+import { AppState } from '../AppState.js'
 
 export default {
   setup() {
@@ -20,6 +21,7 @@ export default {
       }
     }
     return {
+      posts: computed(() => AppState.posts)
     };
   },
 };
