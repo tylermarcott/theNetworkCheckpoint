@@ -18,14 +18,17 @@ class PostsService {
     logger.log('here is our data:', res.data.posts)
   }
 
-  //FIXME: why is this not reactive? look into this. I have to refresh to get my post to show up, but my delete doesn't need refresh
+  //FIXME: ok so post DOES work, it's just adding my post to the bottom of the page instead of the top. When I refresh the page, it comes back up to the top
   async createPost(postData) {
     logger.log('creating post with the following data:', postData)
     const res = await api.post('/api/posts', postData)
 
     const newPost = new Post(res.data)
 
-    AppState.posts.push(newPost)
+    // NOTE: have to use unshift to add post to the beginning of the list, instead of push which adds it to the END. This make post reactive and adds it to the newest slot.
+    AppState.posts.unshift(newPost)
+
+    logger.log('this is our posts array after we push the new post:', AppState.posts)
 
     return newPost
   }
