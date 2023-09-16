@@ -1,9 +1,10 @@
 <template>
-  <form class="component row" @submit.prevent="createPost">
+  <form class="component row m-2" @submit.prevent="createPost">
     <div class="col-4">
-      profile pic goes here
+      <img class="creator-img" :src="account.picture" :alt="account.name">
+      <h4>{{ account.name }}</h4>
     </div>
-    <div class="col-8">
+    <div class="col-7">
       <div class="row">
         <input v-model="postData.body" class="form-control" type="text" placeholder="Post Body">
       </div>
@@ -11,16 +12,19 @@
         <input v-model="postData.imgUrl" class="form-control" type="text" placeholder="Post Image URL">
       </div>
     </div>
-    <button class="btn btn-secondary">Submit Post</button>
+    <div class="col-11 d-flex justify-content-end">
+      <button class="btn btn-secondary">Submit Post</button>
+    </div>
   </form>
 </template>
 
 <script>
 
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Pop from "../utils/Pop.js";
 import { postsService } from "../services/PostsService.js";
 import { logger } from "../utils/Logger.js";
+import { AppState } from "../AppState.js";
 
 
 export default {
@@ -28,6 +32,8 @@ export default {
     // define ref
     const postData = ref({})
     return {
+
+      account: computed(() => AppState.account),
       // return ref
       postData,
       // NOTE: do not pass in postData because we already have access because of the ref.
@@ -49,4 +55,10 @@ export default {
 </script>
 
 
-<style></style>
+<style>
+.creator-img {
+  max-height: 5vh;
+  max-width: 5vh;
+  border-radius: 50em;
+}
+</style>

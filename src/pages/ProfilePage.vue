@@ -26,10 +26,17 @@
           <h3>{{ profile.name }}</h3>
         </div>
         <div class="row">
-          <p>{{ profile.bio }}</p>
+          <p>Bio: {{ profile.bio }}</p>
         </div>
       </div>
     </div>
+
+
+    <!-- TODO: going to have to do a v-for here, and add all of the posts by the user's ID -->
+    <!-- I got my posts by the profile id, now I just need to display them here. -->
+
+
+
   </section>
 </template>
 
@@ -46,6 +53,7 @@ import { AppState } from "../AppState.js";
 export default {
   setup() {
     onMounted(() => getProfileById());
+    onMounted(() => getPostsById());
 
     const route = useRoute();
 
@@ -57,9 +65,17 @@ export default {
       }
     }
 
+    async function getPostsById() {
+      try {
+        await profileService.getPostsById(route.params.profileId)
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
+
 
     return {
-      profile: computed(() => AppState.activeProfile)
+      profile: computed(() => AppState.activeProfile),
     };
   },
 };
