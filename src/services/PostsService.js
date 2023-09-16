@@ -18,16 +18,16 @@ class PostsService {
     logger.log('here is our data:', res.data.posts)
   }
 
-  // TODO: start here
-  // FIXME: need to fix error with create. It is giving me an error but still writing data to api. That means I am getting an error trying to put it back in my appstate. Also, I do not get my posts to  show up when I create them, have to manually refresh.
+  //FIXME: why is this not reactive? look into this. I have to refresh to get my post to show up, but my delete doesn't need refresh
   async createPost(postData) {
     logger.log('creating post with the following data:', postData)
-    const res = api.post('/api/posts', postData)
+    const res = await api.post('/api/posts', postData)
 
-    logger.log('created a post with the following data:', res.data)
+    const newPost = new Post(res.data)
 
-    logger.log('body here from data:', res.data.body)
-    // AppState.posts.push(new Post(res))
+    AppState.posts.push(newPost)
+
+    return newPost
   }
 
   async deletePost(postId) {

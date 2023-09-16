@@ -49,11 +49,10 @@ export default {
 
   setup() {
     return {
-      posts: computed(() => AppState.posts),
-
       async deletePost(postId) {
         try {
           await postsService.deletePost(postId)
+          Pop.toast('Post deleted!❌')
         } catch (error) {
           Pop.error(error)
         }

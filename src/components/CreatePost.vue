@@ -37,6 +37,8 @@ export default {
           logger.log('here is our data we got from the form:', postData)
 
           await postsService.createPost(postData.value)
+
+          Pop.toast('Post created!✅')
         } catch (error) {
           Pop.error(error)
         }
