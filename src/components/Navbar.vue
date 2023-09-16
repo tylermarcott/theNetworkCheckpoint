@@ -15,7 +15,9 @@
         </li>
       </ul>
 
-      <div class="d-flex align-items-end mx-5 fs-2">Search bar here</div>
+      <div class="d-flex align-items-end mx-5 fs-2">
+        <SearchForPost />
+      </div>
 
       <!-- LOGIN COMPONENT HERE -->
       <Login />

@@ -1,6 +1,9 @@
 
-<!-- TODO: ok so first thing I want to do is make it so someone that is not logged in can see ALL posts on the home page -->
-<!-- how will I do this? Start by creating a PostCard component to add to the homepage. -->
+
+
+
+<!-- TODO: next I want to create a component for searching for a post by searching for a certain word that's in the post body. Create a search and link it on the navbar, link to component SearchPost -->
+
 
 
 
