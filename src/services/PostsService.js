@@ -31,10 +31,12 @@ class PostsService {
   }
 
   async deletePost(postId) {
-    await api.delete(`api/posts/${postId}`)
+    const res = await api.delete(`api/posts/${postId}`)
+    logger.log('deleted post with the following data:', res.data)
 
-    // TODO: I think that we have to find the index of the post we are trying to delete, so that we can give splice the proper index
-    AppState.posts.splice()
+    let indexToRemove = AppState.posts.findIndex(post => post.id == postId)
+
+    AppState.posts.splice(indexToRemove, 1)
   }
 
   async changePage(pageUrl) {
