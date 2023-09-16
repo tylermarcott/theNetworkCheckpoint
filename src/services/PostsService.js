@@ -42,6 +42,21 @@ class PostsService {
     AppState.posts.splice(indexToRemove, 1)
   }
 
+  async searchForPostByKeyword(userInput) {
+    const keyword = userInput.body
+
+    logger.log('searching for posts with the following keyword in them:', keyword)
+
+    //NOTE: STOP FORGETTING YOUR AWAITS BROOOOOOOOOOOO
+
+    const res = await api.get(`api/posts?body=${keyword}`)
+
+    logger.log('found the following posts with our keyword in them:', res.data)
+
+    // TODO: render these found posts to the page
+
+  }
+
   async changePage(pageUrl) {
     const res = await api.get(pageUrl)
     AppState.posts = res.data.posts.map(post => new Post(post))
