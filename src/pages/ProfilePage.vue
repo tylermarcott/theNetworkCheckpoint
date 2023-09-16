@@ -32,8 +32,11 @@
     </div>
 
 
-    <!-- TODO: going to have to do a v-for here, and add all of the posts by the user's ID -->
-    <!-- I got my posts by the profile id, now I just need to display them here. -->
+    <section class="row">
+      <div v-for="post in posts" :key="post.id" class="col-12">
+        <PostCard :post="post" />
+      </div>
+    </section>
 
 
 
@@ -76,6 +79,7 @@ export default {
 
     return {
       profile: computed(() => AppState.activeProfile),
+      posts: computed(() => AppState.posts)
     };
   },
 };
@@ -89,6 +93,7 @@ export default {
 
 .profile-card {
   background-color: rgb(212, 212, 236);
-  min-height: 60vh;
+  min-height: 22vh;
+  margin-bottom: 1em;
 }
 </style>
