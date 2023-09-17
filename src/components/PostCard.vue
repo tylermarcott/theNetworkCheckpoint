@@ -14,7 +14,7 @@
       </div>
       <!-- TODO: reformat this so it's not displaying raw time -->
       <div class="row mt-1">
-        Created on: {{ post.createdAt }}
+        {{ dateFormat(post.createdAt) }}, {{ timeFormat(post.createdAt) }}
       </div>
       <!-- TODO: user profile stuff goes here -->
       <div class="row mt-5">
@@ -73,6 +73,16 @@ export default {
         } catch (error) {
           Pop.error(error)
         }
+      },
+
+      dateFormat(date) {
+        let newDate = new Date(date).toLocaleDateString('en-us', { month: 'long', day: 'numeric' })
+        return newDate
+      },
+
+      timeFormat(time) {
+        let newTime = new Date(time).toLocaleTimeString('en-us', { hour: 'numeric', minute: '2-digit' })
+        return newTime
       }
 
     };
