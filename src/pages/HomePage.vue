@@ -19,10 +19,13 @@
   </section>
 
   <section class="d-flex justify-content-around mb-1">
-    <button @click="changePage(previousUrl)" :disabled="!previousUrl" class="btn btn-primary elevation-2">
+    <button @click="changePage(previousUrl), autoScroll()" :disabled="!previousUrl || (posts.length < 20)"
+      class="btn btn-primary elevation-2">
       Newer
     </button>
-    <button @click="changePage(nextUrl)" class="btn btn-secondary elevation-2">
+    <!-- NOTE: created syntax to disable next button if there are less than 20 posts on the page. -->
+    <button @click="changePage(nextUrl), autoScroll()" :disabled="posts.length < 20"
+      class="btn btn-secondary elevation-2">
       Older
     </button>
   </section>
@@ -58,7 +61,12 @@ export default {
         } catch (error) {
           Pop.error(error)
         }
+      },
+
+      autoScroll() {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
+
     }
   }
 }

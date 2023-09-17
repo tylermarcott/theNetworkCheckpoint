@@ -1,3 +1,8 @@
+
+
+<!-- TODO: next I need to add the functionality of liking and disliking to the posts! -->
+
+
 <template>
   <div class="row m-1 post-card">
     <div class="col-5">
