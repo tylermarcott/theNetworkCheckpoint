@@ -4,8 +4,8 @@
 
 
 <template>
-  <!-- FIXME: this is getting rid of the create post regardless of whether I am logged in or not. -->
-  <section v-if="account" class="row">
+  <!-- NOTE: used prebuilt user.isAuthenticated to check if the user is logged in or not!!! -->
+  <section v-if="user.isAuthenticated" class="row">
     <CreatePost :posts="posts" />
   </section>
 
@@ -39,6 +39,7 @@ export default {
 
     return {
       account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       posts: computed(() => AppState.posts),
       setActiveAccount() {
 
