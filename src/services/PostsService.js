@@ -53,8 +53,7 @@ class PostsService {
 
     logger.log('found the following posts with our keyword in them:', res.data)
 
-    // TODO: render these found posts to the page
-
+    AppState.posts = res.data.posts.map(post => new Post(post))
   }
 
   async changePage(pageUrl) {
