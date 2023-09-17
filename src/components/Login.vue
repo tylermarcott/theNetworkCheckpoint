@@ -13,6 +13,9 @@
         </div>
         <div class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-0" aria-labelledby="authDropdown">
           <div class="list-group">
+
+            <!-- TODO: put a v-if on this router link so it disappears if user is not logged in, so they cannot access the account page to change stuff on the account -->
+
             <router-link :to="{ name: 'Account' }">
               <div class="list-group-item dropdown-item list-group-item-action">
                 Manage Account

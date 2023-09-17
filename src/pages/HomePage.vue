@@ -4,7 +4,8 @@
 
 
 <template>
-  <section class="row">
+  <!-- FIXME: this is getting rid of the create post regardless of whether I am logged in or not. -->
+  <section v-if="account" class="row">
     <CreatePost :posts="posts" />
   </section>
 
@@ -37,7 +38,11 @@ export default {
     }
 
     return {
+      account: computed(() => AppState.account),
       posts: computed(() => AppState.posts),
+      setActiveAccount() {
+
+      }
     }
   }
 }

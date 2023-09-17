@@ -13,6 +13,8 @@ export const AppState = reactive({
   /**@type {Profile} */
   activeProfile: null,
 
+  activeAccount: null,
+
   nextUrl: null,
   previousUrl: null
 })

@@ -3,6 +3,8 @@
     <h1>Welcome {{ account.name }}</h1>
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
+    <h3>Edit user info:</h3>
+    <EditUser />
   </div>
 </template>
 

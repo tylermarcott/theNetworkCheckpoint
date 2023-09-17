@@ -32,7 +32,7 @@
           <!-- TODO: have to create an onclick that creates a like for the specific post. -->
           <h3>Likes: <i @click="likePost(post.id)" class="mdi mdi-heart like-button">{{ post.likes.length }}</i></h3>
           <div class="d-flex justify-content-end delete-button">
-            <i @click="deletePost(post.id)" class="mdi mdi-delete">Delete</i>
+            <i v-if="post.creatorId == account.id" @click="deletePost(post.id)" class="mdi mdi-delete">Delete</i>
           </div>
         </div>
       </div>
@@ -56,6 +56,7 @@ export default {
 
   setup() {
     return {
+      account: computed(() => AppState.account),
       async deletePost(postId) {
         try {
           await postsService.deletePost(postId)
