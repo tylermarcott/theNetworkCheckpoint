@@ -4,6 +4,7 @@ import { api } from "./AxiosService.js"
 import { logger } from "../utils/Logger.js"
 import { AppState } from "../AppState.js"
 import { Post } from "../models/Post.js"
+import { Like } from "../models/Like.js"
 
 
 class PostsService {
@@ -64,12 +65,16 @@ class PostsService {
     AppState.previousUrl = res.data.newer
   }
 
-  // TODO: so from what I understand is we are creating a like, and this is linked to the post?
-  // I think I have to create a model for my like, which will include id, name and picture
+  // FIXME: likes work now, but I need to make the likes add/remove without having to refresh.
+
   async likePost(postId) {
-    // const res = await api.post(`api/posts/${postId}/likes`,)
+    const res = await api.post(`api/posts/${postId}/like`)
 
+    logger.log('this is the data we are sending as a like to a post:', res.data)
 
+    AppState.likes = res.data.likes.map(like => new Like(like))
+
+    logger.log('now likes array in appstate looks like this:', AppState.likes)
   }
 
 }
