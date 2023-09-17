@@ -16,6 +16,7 @@
   </section>
 
   <ChangePage />
+  <AdCard />
 </template>
 
 <script>
