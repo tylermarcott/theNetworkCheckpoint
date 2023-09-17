@@ -1,6 +1,6 @@
 
 
-<!-- TODO: next I need to add the functionality of liking and disliking to the posts! -->
+<!-- TODO: ok so I got the likes displayed. Now I just need to be able to add likes on click. This will be a put for the post, and it will increase the length of the like by one on click. -->
 
 
 <template>
@@ -29,6 +29,7 @@
           <p>{{ post.creator.bio }}</p>
 
           <!-- TODO: have to pull in account info, and check if the account on the post is equal to the account that is logged in. If it isn't, hide delete button from user -->
+          <h3>Likes: <i class="mdi mdi-heart">{{ post.likes.length }}</i></h3>
           <div class="d-flex justify-content-end delete-button">
             <i @click="deletePost(post.id)" class="mdi mdi-delete">Delete</i>
           </div>
@@ -58,6 +59,14 @@ export default {
         try {
           await postsService.deletePost(postId)
           Pop.toast('Post deleted!❌')
+        } catch (error) {
+          Pop.error(error)
+        }
+      },
+
+      async getLikes() {
+        try {
+          await postsService.getLikesById()
         } catch (error) {
           Pop.error(error)
         }

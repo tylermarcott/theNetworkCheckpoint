@@ -1,12 +1,4 @@
 
-
-
-
-<!-- TODO: next I want to create a component for searching for a post by searching for a certain word that's in the post body. Create a search and link it on the navbar, link to component SearchPost -->
-
-
-
-
 <template>
   <section class="row">
     <CreatePost :posts="posts" />

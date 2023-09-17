@@ -10,5 +10,6 @@ export class Post {
     this.id = data.id
     this.createdAt = data.createdAt
     this.creator = data.creator
+    this.likes = data.likes
   }
 }
