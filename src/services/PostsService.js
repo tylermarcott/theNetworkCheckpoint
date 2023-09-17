@@ -64,7 +64,11 @@ class PostsService {
     AppState.previousUrl = res.data.newer
   }
 
-  async addLike() {
+  // TODO: so from what I understand is we are creating a like, and this is linked to the post?
+  // I think I have to create a model for my like, which will include id, name and picture
+  async likePost(postId) {
+    const res = await api.post(`api/posts/${postId}/likes`,)
+
 
   }
 

@@ -29,7 +29,8 @@
           <p>{{ post.creator.bio }}</p>
 
           <!-- TODO: have to pull in account info, and check if the account on the post is equal to the account that is logged in. If it isn't, hide delete button from user -->
-          <h3>Likes: <i class="mdi mdi-heart like-button">{{ post.likes.length }}</i></h3>
+          <!-- TODO: have to create an onclick that creates a like for the specific post. -->
+          <h3>Likes: <i @click="likePost(post.id)" class="mdi mdi-heart like-button">{{ post.likes.length }}</i></h3>
           <div class="d-flex justify-content-end delete-button">
             <i @click="deletePost(post.id)" class="mdi mdi-delete">Delete</i>
           </div>
@@ -64,9 +65,12 @@ export default {
         }
       },
 
-      async addLike() {
+      // FIXME: this is not going to work, come back to this a little later
+
+      async likePost(postId) {
         try {
-          await postsService.addLike()
+          logger.log('liking post with the following id:', postId)
+          await postsService.likePost(postId)
         } catch (error) {
           Pop.error(error)
         }

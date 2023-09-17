@@ -1,10 +1,6 @@
 
 
-
-
-<!-- TODO: next I want to create a component for searching for a post by searching for a certain word that's in the post body. Create a search and link it on the navbar, link to component SearchPost -->
-
-
+<!-- TODO: ok I have to figure out how to make the likes work. Is it a put...? I'm not sure how that would work when trying to do a put on someone else's stuff. Need to look into this. -->
 
 
 <template>
