@@ -29,7 +29,7 @@
           <p>{{ post.creator.bio }}</p>
 
           <!-- TODO: have to pull in account info, and check if the account on the post is equal to the account that is logged in. If it isn't, hide delete button from user -->
-          <h3>Likes: <i class="mdi mdi-heart">{{ post.likes.length }}</i></h3>
+          <h3>Likes: <i class="mdi mdi-heart like-button">{{ post.likes.length }}</i></h3>
           <div class="d-flex justify-content-end delete-button">
             <i @click="deletePost(post.id)" class="mdi mdi-delete">Delete</i>
           </div>
@@ -64,9 +64,9 @@ export default {
         }
       },
 
-      async getLikes() {
+      async addLike() {
         try {
-          await postsService.getLikesById()
+          await postsService.addLike()
         } catch (error) {
           Pop.error(error)
         }
@@ -101,5 +101,11 @@ export default {
   color: #d52d2dd0;
   cursor: pointer;
   font-size: 2em;
+}
+
+.like-button {
+  color: #9c1212;
+  cursor: pointer;
+
 }
 </style>

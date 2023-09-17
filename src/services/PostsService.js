@@ -64,6 +64,10 @@ class PostsService {
     AppState.previousUrl = res.data.newer
   }
 
+  async addLike() {
+
+  }
+
 }
 
 

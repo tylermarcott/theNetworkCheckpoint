@@ -1,4 +1,12 @@
 
+
+
+
+<!-- TODO: next I want to create a component for searching for a post by searching for a certain word that's in the post body. Create a search and link it on the navbar, link to component SearchPost -->
+
+
+
+
 <template>
   <section class="row">
     <CreatePost :posts="posts" />
@@ -10,17 +18,7 @@
     </div>
   </section>
 
-  <section class="d-flex justify-content-around mb-1">
-    <button @click="changePage(previousUrl), autoScroll()" :disabled="!previousUrl || (posts.length < 20)"
-      class="btn btn-primary elevation-2">
-      Newer
-    </button>
-    <!-- NOTE: created syntax to disable next button if there are less than 20 posts on the page. -->
-    <button @click="changePage(nextUrl), autoScroll()" :disabled="posts.length < 20"
-      class="btn btn-secondary elevation-2">
-      Older
-    </button>
-  </section>
+  <ChangePage />
 </template>
 
 <script>
@@ -44,21 +42,6 @@ export default {
 
     return {
       posts: computed(() => AppState.posts),
-      nextUrl: computed(() => AppState.nextUrl),
-      previousUrl: computed(() => AppState.previousUrl),
-
-      async changePage(url) {
-        try {
-          await postsService.changePage(url)
-        } catch (error) {
-          Pop.error(error)
-        }
-      },
-
-      autoScroll() {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }
-
     }
   }
 }

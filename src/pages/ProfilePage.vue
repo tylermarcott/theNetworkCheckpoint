@@ -31,12 +31,18 @@
 
     <section class="row">
       <div v-for="post in posts" :key="post.id" class="col-12">
-        <PostCard :post="post" />
+        <!-- NOTE: this syntax works for making sure posts don't show up in profile that aren't made by the account -->
+        <!-- FIXME: when posts run out for user, option to go to older page still works but nothing gets displayed. Fix this.-->
+        <div v-if="post.creatorId == profile.id">
+          <PostCard :post="post" />
+        </div>
       </div>
     </section>
 
+    <!-- FIXME: pagination works, but then it starts populating other people's pages once the profile posts are done. Fix this, need to make sure other posts don't get into this page. Make sure that if the post doesn't match the id of the profile, then it won't be shown -->
 
 
+    <ChangePage />
   </section>
 </template>
 
@@ -64,6 +70,7 @@ export default {
         Pop.error(error)
       }
     }
+
 
     async function getPostsById() {
       try {
