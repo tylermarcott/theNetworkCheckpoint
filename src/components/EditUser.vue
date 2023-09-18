@@ -1,61 +1,73 @@
 <template>
   <!-- TODO: on this form we want the user to be able to edit their bio, picture, name, github, linkedin, resume -->
 
-  <div class="row m-2">
+  <div class="row mb-1">
     <form class="col-12" @submit.prevent="editAccount">
-      <div class="row">
+      <div class="row mb-2">
         <input v-model="accountData.name" type="text" placeholder="name" class="form-control col-6">
       </div>
-      <button class="col-6 btn btn-secondary m-1">Submit</button>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary mb-2">Submit</button>
+      </div>
     </form>
   </div>
 
 
-  <div class="row m-2">
+  <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
-      <div class="row">
+      <div class="row mb-1">
         <input v-model="accountData.picture" type="text" placeholder="picture" class="form-control col-6">
       </div>
-      <button class="col-6 btn btn-secondary m-1">Submit</button>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary m-1">Submit</button>
+      </div>
     </form>
   </div>
 
 
-  <div class="row m-2">
+  <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
-      <div class="row">
+      <div class="row mb-1">
         <input v-model="accountData.github" type="text" placeholder="GitHub" class="form-control col-6">
       </div>
-      <button class="col-6 btn btn-secondary m-1">Submit</button>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary m-1">Submit</button>
+      </div>
     </form>
   </div>
 
 
-  <div class="row m-2">
+  <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
-      <div class="row">
+      <div class="row mb-1">
         <input v-model="accountData.linkedin" type="text" placeholder="LinkedIn" class="form-control col-6">
       </div>
-      <button class="col-6 btn btn-secondary m-1">Submit</button>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary m-1">Submit</button>
+      </div>
     </form>
   </div>
 
 
-  <div class="row m-2">
+  <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
-      <div class="row">
+      <div class="row mb-1">
         <input v-model="accountData.resume" type="text" placeholder="resume" class="form-control col-6">
       </div>
-      <button class="col-6 btn btn-secondary m-1">Submit</button>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary m-1">Submit</button>
+      </div>
     </form>
   </div>
 
-  <div class="row m-2">
+  <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
-      <div class="row">
+      <div class="row mb-1">
         <textarea v-model="accountData.bio" type="text" placeholder="bio" class="form-control col-6" rows="5"></textarea>
       </div>
-      <button class="col-6 btn btn-secondary m-1">Submit</button>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary m-1">Submit</button>
+      </div>
     </form>
   </div>
 
@@ -80,8 +92,8 @@ export default {
 
       async editAccount() {
         try {
-          logger.log('editing account with the following data:', accountData.value)
           await accountService.editAccount(accountData.value)
+          Pop.toast('Change saved ✅')
         } catch (error) {
           Pop.error(error)
         }

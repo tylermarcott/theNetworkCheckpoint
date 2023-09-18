@@ -55,7 +55,7 @@ a:hover {
 
 @media screen and (min-width: 768px) {
   nav {
-    height: 200px;
+    height: 220px;
     /* overflow-y: hidden;
     height: 100% */
   }

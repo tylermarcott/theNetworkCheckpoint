@@ -32,7 +32,6 @@
     <section class="row">
       <div v-for="post in posts" :key="post.id" class="col-12">
         <!-- NOTE: this syntax works for making sure posts don't show up in profile that aren't made by the account -->
-        <!-- FIXME: when posts run out for user, option to go to older page still works but nothing gets displayed. Fix this.-->
         <div v-if="post.creatorId == profile.id">
           <PostCard :post="post" />
         </div>
