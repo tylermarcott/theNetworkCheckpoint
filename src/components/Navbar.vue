@@ -12,7 +12,7 @@
         </li>
       </ul>
 
-      <div class="d-flex align-items-end mx-5 fs-2">
+      <div class="d-flex mx-5 fs-2">
         <SearchForPost />
       </div>
 
@@ -55,7 +55,9 @@ a:hover {
 
 @media screen and (min-width: 768px) {
   nav {
-    height: 64px;
+    height: 200px;
+    /* overflow-y: hidden;
+    height: 100% */
   }
 }
 </style>

@@ -31,10 +31,21 @@ export default {
   --main-height: calc(100vh - 32px - 64px);
 }
 
+header {
+  overflow-x: hidden;
+  width: 100%
+}
+
+main {
+  overflow-x: hidden;
+  width: 100%
+}
 
 footer {
   display: grid;
   place-content: center;
   height: 32px;
+  overflow-x: hidden;
+  width: 100%
 }
 </style>

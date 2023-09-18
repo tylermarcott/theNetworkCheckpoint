@@ -23,10 +23,10 @@
 
           </router-link>
 
-          <div v-if="post.creator.bio.length < 100">
-            {{ post.creator.bio }}
-          </div>
-          <div v-else>{{ post.creator.bio.substring(0, 100) + '...' }}</div>
+          <!-- NOTE: used this syntax to crop the bio length to 100 characters, so long bios don't stretch post cards -->
+          <!-- ok wtf so it works but throws an error that makes it so my create update doesn't work... -->
+          <!-- <div>{{ post.creator.bio.substring(0, 100) + '...' }}</div> -->
+          <div>{{ post.creator.bio }}</div>
 
           <h3 v-if="user.isAuthenticated">Likes: <i @click="likePost(post.id)" class="mdi mdi-heart like-button">{{
             post.likes.length }}</i></h3>
@@ -101,7 +101,7 @@ export default {
   border: solid #181515 2px;
   border-radius: 5px;
   min-height: 30vh;
-  background-color: rgb(247, 247, 247);
+  background-color: #f7f7f7;
 }
 
 .creator-img {

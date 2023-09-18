@@ -5,8 +5,8 @@
 <template>
   <section v-if="profile" class="container mt-2">
     <div class="row profile-card elevation-1">
-      <div class="col-6">
-        <img class="profile-pic" :src="profile.picture" alt="bad-img">
+      <div class="col-6 p-1 ms-1">
+        <img class="profile-pic rounded" :src="profile.picture" alt="bad-img">
         <div class="row">
           <div class="col-12">Resume: {{ profile.resume }}</div>
         </div>
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div class="col-6">
+      <div class="col-5">
         <div class="row">
           <h3>{{ profile.name }}</h3>
         </div>
@@ -96,8 +96,9 @@ export default {
 }
 
 .profile-card {
-  background-color: rgb(212, 212, 236);
+  background-color: #f7f7f7;
   min-height: 22vh;
   margin-bottom: 1em;
+  border-radius: 14px;
 }
 </style>
