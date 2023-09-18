@@ -101,7 +101,7 @@ export default {
   border: solid #181515 2px;
   border-radius: 5px;
   min-height: 50vh;
-  background-color: #f7f7f7;
+  background-color: #F8F0E3;
 }
 
 .creator-img {
