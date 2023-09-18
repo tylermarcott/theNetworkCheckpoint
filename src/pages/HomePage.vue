@@ -1,8 +1,4 @@
 
-
-<!-- TODO: ok I have to figure out how to make the likes work. Is it a put...? I'm not sure how that would work when trying to do a put on someone else's stuff. Need to look into this. -->
-
-
 <template>
   <!-- NOTE: used prebuilt user.isAuthenticated to check if the user is logged in or not!!! -->
   <section v-if="user.isAuthenticated" class="row">

@@ -3,7 +3,7 @@
 
   <form class="component" @submit.prevent="searchForPostByKeyword">
     <div class="col-4">
-      <input v-model="postData.body" type="text" required="true" placeholder="search for post">
+      <input class="p-1 rounded" v-model="postData.body" type="text" required="true" placeholder="search for post">
     </div>
   </form>
 </template>

@@ -1,8 +1,5 @@
 
 
-<!-- TODO: ok so I got the likes displayed. Now I just need to be able to add likes on click. This will be a put for the post, and it will increase the length of the like by one on click. -->
-
-
 <template>
   <div class="row m-1 post-card">
     <div class="col-5">
@@ -12,11 +9,9 @@
       <div class="row">
         {{ post.body }}
       </div>
-      <!-- TODO: reformat this so it's not displaying raw time -->
       <div class="row mt-1">
         {{ dateFormat(post.createdAt) }}, {{ timeFormat(post.createdAt) }}
       </div>
-      <!-- TODO: user profile stuff goes here -->
       <div class="row mt-5">
         <div class="col-6">
           <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
@@ -101,7 +96,7 @@ export default {
   border: solid #181515 2px;
   border-radius: 5px;
   min-height: 30vh;
-  background-color: #ddedf7;
+  background-color: #def2dcba;
 }
 
 .creator-img {

@@ -1,17 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info px-3">
+  <nav class="navbar navbar-expand-lg bg-primary px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <h3>The Network</h3>
+        <h3 class="page-title">The Network</h3>
       </div>
     </router-link>
 
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            Maybe a dif router link here?
-          </router-link>
         </li>
       </ul>
 
@@ -38,6 +35,12 @@ export default {
 <style scoped>
 a:hover {
   text-decoration: none;
+}
+
+.page-title {
+  font-size: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(11, 8, 8);
 }
 
 .nav-link {

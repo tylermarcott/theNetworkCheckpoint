@@ -69,9 +69,7 @@ class PostsService {
   async likePost(postId) {
     const res = await api.post(`api/posts/${postId}/like`)
 
-    logger.log('this is the data we are sending as a like to a post:', res.data)
-
-    AppState.likes = res.data.likes.map(like => new Like(like))
+    AppState.likes.push(res.data)
 
     logger.log('now likes array in appstate looks like this:', AppState.likes)
   }
