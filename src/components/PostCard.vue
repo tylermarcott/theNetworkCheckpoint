@@ -7,7 +7,9 @@
     </div>
     <div class="col-7">
       <div class="row">
+
         {{ post.body }}
+
       </div>
       <div class="row mt-1">
         {{ dateFormat(post.createdAt) }}, {{ timeFormat(post.createdAt) }}
@@ -21,7 +23,10 @@
 
           </router-link>
 
-          <p>{{ post.creator.bio }}</p>
+          <div v-if="post.creator.bio.length < 100">
+            {{ post.creator.bio }}
+          </div>
+          <div v-else>{{ post.creator.bio.substring(0, 100) + '...' }}</div>
 
           <h3 v-if="user.isAuthenticated">Likes: <i @click="likePost(post.id)" class="mdi mdi-heart like-button">{{
             post.likes.length }}</i></h3>
@@ -96,7 +101,7 @@ export default {
   border: solid #181515 2px;
   border-radius: 5px;
   min-height: 30vh;
-  background-color: #def2dcba;
+  background-color: rgb(247, 247, 247);
 }
 
 .creator-img {
