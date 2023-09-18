@@ -1,11 +1,11 @@
 
 
 <template>
-  <div class="row m-1 post-card">
-    <div class="col-5">
+  <div class="row m-1 post-card ps-5 pe-5">
+    <div class="col-4">
       <img class="img-fluid img" :src="post.imgUrl" alt="bad-img">
     </div>
-    <div class="col-7">
+    <div class="col-8">
       <div class="row">
 
         {{ post.body }}
@@ -15,7 +15,7 @@
         {{ dateFormat(post.createdAt) }}, {{ timeFormat(post.createdAt) }}
       </div>
       <div class="row mt-5">
-        <div class="col-6">
+        <div class="col-9">
           <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
 
             <img class="creator-img" :src="post.creator.picture" alt="bad-img">
@@ -93,14 +93,14 @@ export default {
 
 <style>
 .img {
-  max-height: 30vh;
-  max-width: 30vh;
+  max-height: 40vh;
+  max-width: 40vh;
 }
 
 .post-card {
   border: solid #181515 2px;
   border-radius: 5px;
-  min-height: 30vh;
+  min-height: 50vh;
   background-color: #f7f7f7;
 }
 

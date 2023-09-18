@@ -5,8 +5,8 @@
     <CreatePost :posts="posts" />
   </section>
 
-  <section class="row">
-    <div v-for="post in posts" :key="post.id" class="col-12">
+  <section class="row d-flex justify-content-center">
+    <div v-for="post in posts" :key="post.id" class="col-10">
       <PostCard :post="post" />
 
     </div>
