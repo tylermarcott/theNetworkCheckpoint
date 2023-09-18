@@ -1,8 +1,10 @@
 import { logger } from "../utils/Logger.js"
+import { api } from "./AxiosService.js"
 
 class AdsService {
   async getAds() {
-    logger.log('hello from ads service!')
+    const res = await api.get('api/ads')
+    logger.log('here is our ads: ', res.data)
   }
 }
 

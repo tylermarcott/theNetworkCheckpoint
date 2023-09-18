@@ -19,7 +19,6 @@ class PostsService {
     logger.log('here is our data:', res.data.posts)
   }
 
-  //FIXME: ok so post DOES work, it's just adding my post to the bottom of the page instead of the top. When I refresh the page, it comes back up to the top
   async createPost(postData) {
     logger.log('creating post with the following data:', postData)
     const res = await api.post('/api/posts', postData)

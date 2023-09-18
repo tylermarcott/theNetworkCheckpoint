@@ -22,6 +22,7 @@
 <script>
 import Pop from "../utils/Pop.js";
 import { postsService } from '../services/PostsService.js'
+import { adsService } from "../services/AdsService.js";
 import { computed, onMounted } from "vue";
 import { AppState } from '../AppState.js'
 import { logger } from "../utils/Logger.js";
@@ -30,6 +31,7 @@ export default {
   setup() {
 
     onMounted(() => getPosts());
+    onMounted(() => getAds())
     async function getPosts() {
       try {
         await postsService.getPosts();
@@ -38,12 +40,15 @@ export default {
       }
     }
 
+    async function getAds() {
+      await adsService.getAds()
+    }
+
     return {
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.posts),
       setActiveAccount() {
-
       }
     }
   }

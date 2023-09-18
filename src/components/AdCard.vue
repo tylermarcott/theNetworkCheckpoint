@@ -9,10 +9,6 @@ import { logger } from "../utils/Logger.js";
 export default {
   setup() {
     return {
-      async getAds() {
-        logger.log('getting some ads')
-        await adsService.getAds()
-      }
     };
   },
 };
