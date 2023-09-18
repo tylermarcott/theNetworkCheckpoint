@@ -13,6 +13,9 @@ export const AppState = reactive({
   /**@type {Like[]} */
   likes: [],
 
+  /**@type {Ad[]} */
+  ads: [],
+
   /**@type {Profile} */
   activeProfile: null,
 

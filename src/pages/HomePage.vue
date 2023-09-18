@@ -12,11 +12,16 @@
   <section class="row">
     <div v-for="post in posts" :key="post.id" class="col-12">
       <PostCard :post="post" />
+
     </div>
   </section>
 
   <ChangePage />
-  <AdCard />
+  <section class="row">
+    <div v-for="ad in ads" :key="ad.id">
+      <AdCard :ad="ad" />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -48,6 +53,7 @@ export default {
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.posts),
+      ads: computed(() => AppState.ads),
       setActiveAccount() {
       }
     }
