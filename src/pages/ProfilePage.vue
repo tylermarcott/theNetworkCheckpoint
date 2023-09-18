@@ -4,6 +4,9 @@
 
 <template>
   <section v-if="profile" class="container mt-2">
+    <div class="d-flex justify-content-center">
+      <img class="cover-img" :src="profile.coverImg" alt="bad-img">
+    </div>
     <div class="row profile-card elevation-1">
       <div class="col-6 p-1 ms-1">
         <img class="profile-pic rounded" :src="profile.picture" alt="bad-img">
@@ -15,6 +18,12 @@
         </div>
         <div class="row">
           <div class="col-4">GitHub: {{ profile.gitHub }}</div>
+        </div>
+        <div v-if="profile.graduated">
+          Codeworks Alumni
+        </div>
+        <div v-else>
+          Codeworks Student
         </div>
       </div>
 
@@ -98,6 +107,13 @@ export default {
   background-color: #f7f7f7;
   min-height: 22vh;
   margin-bottom: 1em;
+  border-radius: 14px;
+}
+
+.cover-img {
+  max-height: 70vh;
+  max-width: 120vh;
+  margin: 1em;
   border-radius: 14px;
 }
 </style>
