@@ -8,21 +8,27 @@
       <img class="cover-img" :src="profile.coverImg" alt="bad-img">
     </div>
     <div class="row profile-card elevation-1">
-      <div class="col-6 p-1 ms-1">
+      <div class="col-3 p-1 ms-1">
         <img class="profile-pic rounded" :src="profile.picture" alt="bad-img">
+      </div>
+
+      <div class="col-3">
         <div class="row">
-          <div class="col-12">Resume: {{ profile.resume }}</div>
+          <div class="col-12 m-1">Resume: {{ profile.resume }}</div>
         </div>
         <div class="row">
-          <div class="col-4">LinkedIn: {{ profile.linkedin }}</div>
+          <div class="col-12 m-1">LinkedIn: {{ profile.linkedin }}</div>
         </div>
         <div class="row">
-          <div class="col-4">GitHub: {{ profile.gitHub }}</div>
+          <div class="col-12 m-1">GitHub: {{ profile.gitHub }}</div>
         </div>
-        <div v-if="profile.graduated">
+        <div class="row">
+          <div class="col-12 m-1">Class: {{ profile.class }}</div>
+        </div>
+        <div class="m-1" v-if="profile.graduated">
           Codeworks Alumni
         </div>
-        <div v-else>
+        <div class="m-1" v-else>
           Codeworks Student
         </div>
       </div>

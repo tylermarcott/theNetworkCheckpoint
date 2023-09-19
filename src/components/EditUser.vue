@@ -4,7 +4,8 @@
   <div class="row mb-1">
     <form class="col-12" @submit.prevent="editAccount">
       <div class="row mb-2">
-        <input v-model="accountData.name" type="text" placeholder="name" class="form-control col-6">
+        <input v-model="accountData.name" type="text" placeholder="name" class="form-control col-6" maxlength="20"
+          required=true>
       </div>
       <div class="row ms-3">
         <button class="col-2 btn btn-secondary mb-2">Submit</button>
@@ -16,7 +17,7 @@
   <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
       <div class="row mb-1">
-        <input v-model="accountData.picture" type="text" placeholder="picture" class="form-control col-6">
+        <input v-model="accountData.picture" type="url" placeholder="picture" class="form-control col-6" required="true">
       </div>
       <div class="row ms-3">
         <button class="col-2 btn btn-secondary m-1">Submit</button>
@@ -28,7 +29,7 @@
   <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
       <div class="row mb-1">
-        <input v-model="accountData.github" type="text" placeholder="GitHub" class="form-control col-6">
+        <input v-model="accountData.github" type="url" placeholder="GitHub" class="form-control col-6" required="true">
       </div>
       <div class="row ms-3">
         <button class="col-2 btn btn-secondary m-1">Submit</button>
@@ -40,7 +41,8 @@
   <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
       <div class="row mb-1">
-        <input v-model="accountData.linkedin" type="text" placeholder="LinkedIn" class="form-control col-6">
+        <input v-model="accountData.linkedin" type="url" placeholder="LinkedIn" class="form-control col-6"
+          required="true">
       </div>
       <div class="row ms-3">
         <button class="col-2 btn btn-secondary m-1">Submit</button>
@@ -52,10 +54,22 @@
   <div class="row mb-2">
     <form class="col-12" @submit.prevent="editAccount">
       <div class="row mb-1">
-        <input v-model="accountData.resume" type="text" placeholder="resume" class="form-control col-6">
+        <input v-model="accountData.resume" type="link" placeholder="resume" class="form-control col-6" required="true">
       </div>
       <div class="row ms-3">
         <button class="col-2 btn btn-secondary m-1">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row mb-1">
+    <form class="col-12" @submit.prevent="editAccount">
+      <div class="row mb-2">
+        <input v-model="accountData.class" type="text" placeholder="class" class="form-control col-6" maxlength="20"
+          required=true>
+      </div>
+      <div class="row ms-3">
+        <button class="col-2 btn btn-secondary mb-2">Submit</button>
       </div>
     </form>
   </div>
@@ -71,9 +85,12 @@
     </form>
   </div>
 
-  <form action="">
-
-  </form>
+  <div class="form-check mb-5">
+    <input v-model="accountData.graduated" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      <h4>Graduated?</h4>
+    </label>
+  </div>
 </template>
 
 <script>

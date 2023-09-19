@@ -5,12 +5,12 @@ export class Profile {
     this.bio = data.bio || 'None'
     this.coverImg = data.coverImg
     this.gitHub = data.gitHub || 'None'
-    this.graduated = data.graduated || 'None'
+    this.graduated = data.graduated
     this.linkedin = data.linkedin || 'None'
     this.resume = data.resume || 'None'
     this.picture = data.picture
     this.id = data.id
-    this.class = data.class
+    this.class = data.class || 'None'
     this.name = data.name
   }
 }
