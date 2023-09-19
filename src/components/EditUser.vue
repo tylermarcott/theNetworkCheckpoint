@@ -7,9 +7,7 @@
         <input v-model="accountData.name" type="text" placeholder="name" class="form-control col-6" maxlength="20"
           required=true>
       </div>
-      <div class="row ms-3">
-        <button class="col-2 btn btn-secondary mb-2">Submit</button>
-      </div>
+
     </form>
   </div>
 
@@ -19,9 +17,7 @@
       <div class="row mb-1">
         <input v-model="accountData.picture" type="url" placeholder="picture" class="form-control col-6" required="true">
       </div>
-      <div class="row ms-3">
-        <button class="col-2 btn btn-secondary m-1">Submit</button>
-      </div>
+
     </form>
   </div>
 
@@ -31,9 +27,7 @@
       <div class="row mb-1">
         <input v-model="accountData.github" type="url" placeholder="GitHub" class="form-control col-6" required="true">
       </div>
-      <div class="row ms-3">
-        <button class="col-2 btn btn-secondary m-1">Submit</button>
-      </div>
+
     </form>
   </div>
 
@@ -44,9 +38,7 @@
         <input v-model="accountData.linkedin" type="url" placeholder="LinkedIn" class="form-control col-6"
           required="true">
       </div>
-      <div class="row ms-3">
-        <button class="col-2 btn btn-secondary m-1">Submit</button>
-      </div>
+
     </form>
   </div>
 
@@ -56,9 +48,7 @@
       <div class="row mb-1">
         <input v-model="accountData.resume" type="link" placeholder="resume" class="form-control col-6" required="true">
       </div>
-      <div class="row ms-3">
-        <button class="col-2 btn btn-secondary m-1">Submit</button>
-      </div>
+
     </form>
   </div>
 
@@ -68,10 +58,15 @@
         <input v-model="accountData.class" type="text" placeholder="class" class="form-control col-6" maxlength="20"
           required=true>
       </div>
-      <div class="row ms-3">
-        <button class="col-2 btn btn-secondary mb-2">Submit</button>
-      </div>
+
     </form>
+  </div>
+
+  <div class="form-check my-1">
+    <input v-model="accountData.graduated" class="form-check-input" type="checkbox" value="" id="graduated">
+    <label class="form-check-label" for="graduated">
+      <h4>Graduated?</h4>
+    </label>
   </div>
 
   <div class="row mb-2">
@@ -83,13 +78,6 @@
         <button class="col-2 btn btn-secondary m-1">Submit</button>
       </div>
     </form>
-  </div>
-
-  <div class="form-check mb-5">
-    <input v-model="accountData.graduated" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault">
-      <h4>Graduated?</h4>
-    </label>
   </div>
 </template>
 
@@ -109,6 +97,7 @@ export default {
 
       async editAccount() {
         try {
+          logger.log('editing account with the following data: ', accountData.value)
           await accountService.editAccount(accountData.value)
           Pop.toast('Change saved ✅')
         } catch (error) {
