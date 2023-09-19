@@ -10,18 +10,30 @@
         <EditUser />
       </div>
     </div>
-
-
   </div>
+
+  <section class="row">
+    <div v-for="ad in ads" :key="ad.id">
+      <AdCard :ad="ad" />
+    </div>
+  </section>
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { AppState } from '../AppState';
+import { adsService } from "../services/AdsService.js";
 export default {
   setup() {
+
+    onMounted(() => getAds())
+    async function getAds() {
+      await adsService.getAds()
+    }
+
     return {
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      ads: computed(() => AppState.ads)
     }
   }
 }

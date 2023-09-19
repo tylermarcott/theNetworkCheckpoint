@@ -51,6 +51,14 @@
 
 
     <ChangePage />
+
+    <section class="row">
+      <div v-for="ad in ads" :key="ad.id">
+        <AdCard :ad="ad" />
+      </div>
+    </section>
+
+
   </section>
 </template>
 
@@ -61,6 +69,7 @@ import Pop from "../utils/Pop.js";
 import { profileService } from '../services/ProfileService.js'
 import { onMounted, computed } from "vue";
 import { AppState } from "../AppState.js";
+import { adsService } from "../services/AdsService.js";
 // import { logger } from "../utils/Logger.js";
 
 
@@ -68,8 +77,14 @@ export default {
   setup() {
     onMounted(() => getProfileById());
     onMounted(() => getPostsById());
+    onMounted(() => getAds());
 
     const route = useRoute();
+
+
+    async function getAds() {
+      await adsService.getAds()
+    }
 
     async function getProfileById() {
       try {
@@ -91,7 +106,8 @@ export default {
 
     return {
       profile: computed(() => AppState.activeProfile),
-      posts: computed(() => AppState.posts)
+      posts: computed(() => AppState.posts),
+      ads: computed(() => AppState.ads)
     };
   },
 };
